@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class App extends Component {
   }
   getData() 
   {
-    let data = fetch('https://www.healthcare.gov/api/index.json')
+    let data = fetch(' https://www.healthcare.gov/api/index.json')
     .then((res) => {
       res.json().then((res)=>{
         console.log(res)
@@ -25,15 +25,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
+      
         <body>
           {
             this.state.data ?
             this.state.data.map((item) =>
-            <h3>{item.title}</h3>
+          
+          <Card body>
+            <CardTitle>{item.title}</CardTitle>
+            <CardText>{item.bite}</CardText>
+            <button>Click me for more info</button>
+          </Card>
             )
           :
-          <h3>wait..... data is fetching</h3>
+          <li>wait..... data is fetching</li>
           }
         </body>
       </div>

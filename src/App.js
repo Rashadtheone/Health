@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card, 
-  Button, 
-  CardTitle, 
-  CardText,
-   Row, 
-  Col}
+import { Card,CardTitle,CardText,Input,Button, Modal, ModalHeader, ModalBody, ModalFooter }
  from 'reactstrap';
- import {NavItem, Navbar, Icon} from 'react-materialize'
+ import { NavItem, Navbar } from 'react-materialize'
 
 class App extends Component {
   constructor(props) {
@@ -16,10 +11,14 @@ class App extends Component {
     this.state = {
       data:null,
       isOpen: false,
+      query: [],
+      modal: false
     }
     this.getData()
+    this.toggle = this.toggle.bind(this);
+ 
   }
-  
+
   getData() 
   {
     let data = fetch(' https://www.healthcare.gov/api/index.json')
@@ -31,15 +30,29 @@ class App extends Component {
     } )
   }
 
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+  
+  searchData() {
+  //  create functionality here
+  }
+
   
 
   render() {
+    const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>;
     return (
       <div className="App">
-<Navbar brand='FindYourHealth' right>
+      <nav>
+<Navbar brand='FindYourHealth' left>
   <NavItem onClick={() => console.log('test click')}> About </NavItem>
-  <NavItem href='components.html'> Contact </NavItem>
+  <NavItem onClick={() => console.log('test click')}><Input label="First Name" validate defaultValue='Alvin' /></NavItem>
+  {/* need to setup search of query that has been preformed. the styling issue with the searchbar sitting to high. */}
 </Navbar>
+</nav>
         <body>
           {
             this.state.data ?
@@ -48,7 +61,19 @@ class App extends Component {
           <Card body>
             <CardTitle>{item.title}</CardTitle>
             <CardText>{item.bite}</CardText>
-            <button>Click me for more info</button>
+            {/* need to implement onclick function for button to display rest of the information recived. */}
+            <Button onClick={this.toggle}>{this.props.buttonLabel}More Info</Button>
+            <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+            <ModalHeader toggle={this.toggle} close={closeBtn}>Modal title</ModalHeader>
+            <ModalBody>
+                ----
+                ---
+            </ModalBody>
+          < ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
           </Card>
             )
           :

@@ -19,10 +19,14 @@ H5.card-title {
 }
 
 /* navbar */
-
 nav .nav-wrapper {
+  height: 1px;
   background-color: black;
+  height: 10vh;
+  padding: 10px;
 }
+
+
 
 /* Responsive Moby */
 @media only screen and (max-width: 600px) {

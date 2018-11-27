@@ -47,7 +47,7 @@ class App extends Component {
       <nav>
 <Navbar brand='FindYourHealth' left>
   <NavItem onClick={() => console.log('test click')}> About </NavItem>
-  <NavItem onClick={() => console.log('test click')}><Input label="First Name" validate defaultValue='Alvin' /></NavItem>
+  <NavItem onClick={() => console.log('test click')}><Input label="First Name" validate defaultValue='search' /></NavItem>
 </Navbar>
 </nav>
         <body>
@@ -64,6 +64,7 @@ class App extends Component {
   trigger={<Button>More Info</Button>}>
             <h1>Description</h1>
               <p>{item.bite}</p>
+              <a href={"https://www.healthcare.gov/"+ item.url}>{item.title}</a>
 </Modal>
           </Card>
             )

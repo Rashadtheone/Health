@@ -4,7 +4,9 @@ This application will display display healthcare options.
 
 ## Technologies 
 
-* React 
+* React
+* Materialize
+* Bootstrap
 
 ## API's
 

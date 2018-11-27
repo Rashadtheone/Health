@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { Card, 
+  Button, 
+  CardTitle, 
+  CardText,
+   Row, 
+  Col}
+ from 'reactstrap';
+ import {NavItem, Navbar, Icon} from 'react-materialize'
 
 class App extends Component {
   constructor(props) {
@@ -8,9 +15,11 @@ class App extends Component {
 
     this.state = {
       data:null,
+      isOpen: false,
     }
     this.getData()
   }
+  
   getData() 
   {
     let data = fetch(' https://www.healthcare.gov/api/index.json')
@@ -22,10 +31,15 @@ class App extends Component {
     } )
   }
 
+  
+
   render() {
     return (
       <div className="App">
-      
+<Navbar brand='FindYourHealth' right>
+  <NavItem onClick={() => console.log('test click')}> About </NavItem>
+  <NavItem href='components.html'> Contact </NavItem>
+</Navbar>
         <body>
           {
             this.state.data ?
@@ -41,6 +55,9 @@ class App extends Component {
           <li>wait..... data is fetching</li>
           }
         </body>
+        <footer>
+
+        </footer>
       </div>
     );
   }

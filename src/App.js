@@ -62,6 +62,7 @@ class App extends Component {
   header={item.title}
   fixedFooter
   trigger={<Button>More Info</Button>}>
+            <h1>Description</h1>
               <p>{item.bite}</p>
 </Modal>
           </Card>

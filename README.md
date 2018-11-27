@@ -6,6 +6,6 @@ This application will display display healthcare options.
 
 * React 
 
-## API's 
+## API's
 
 * Healthcare.gov

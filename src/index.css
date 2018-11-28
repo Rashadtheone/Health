@@ -26,9 +26,9 @@ nav .nav-wrapper {
   padding: 10px;
 }
 
-.NavItem {
-  margin: 0px;
-  
+nav ul li {
+  margin: 2px 0px 0px 20px;
+  color: white;
 }
 
 

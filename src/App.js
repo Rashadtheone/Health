@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card,CardTitle,CardText,Input,Button} from 'reactstrap';
+import { Card,CardTitle,CardText,Input,Button, Form} from 'reactstrap';
  import { NavItem, Navbar,Modal } from 'react-materialize'
 class App extends Component {
   constructor(props) {
@@ -8,11 +8,14 @@ class App extends Component {
 
     this.state = {
       data:null,
-      query: [],
+      value: 'Search',
+      filter: [],
       modal: false
     }
     this.getData()
     this.toggle = this.toggle.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
  
   }
 
@@ -32,10 +35,18 @@ class App extends Component {
       modal: !this.state.modal,
     });
   }
-  
-  searchData() {
+
+  handleChange (event) {
+    this.setState( {value: event.target.value})
+    event.preventDefault();
+  }
+  handleSubmit(event){
+    event.preventDefault()
+    console.log(this.state.value)
 
   }
+
+
 
   
 
@@ -45,7 +56,12 @@ class App extends Component {
       <div className="App">
       <nav>
 <Navbar brand='FindYourHealth' left>
-  <NavItem onClick={() => console.log('test click')}><Input validate defaultValue='search' /></NavItem>
+  <NavItem onClick={() => this.handleReload}>
+  <form onSubmit={this.handleSubmit}>
+          <input type="text" value={this.state.value} onChange={this.handleChange} defaultValue='Search'/>
+        <input type="submit" value="Submit" />
+    </form>
+  </NavItem>
 </Navbar>
 </nav>
         <body>

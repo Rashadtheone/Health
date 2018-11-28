@@ -43,6 +43,15 @@ class App extends Component {
   handleSubmit(event){
     event.preventDefault()
     console.log(this.state.value)
+    let postFilter = this.state.value
+    console.log('postfilter' + postFilter)
+    let data = fetch(' https://www.healthcare.gov/api/index.json' )
+    .then((res) => {
+      return res.json()
+    } ).then(data => {
+      // filter processing
+    })
+    .then
 
   }
 

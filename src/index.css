@@ -26,6 +26,10 @@ nav .nav-wrapper {
   padding: 10px;
 }
 
+.NavItem {
+  margin: 0px;
+  
+}
 
 
 /* Responsive Moby */

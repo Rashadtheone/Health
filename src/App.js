@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Card,CardTitle,CardText,Input,Button} from 'reactstrap';
  import { NavItem, Navbar,Modal } from 'react-materialize'
-
 class App extends Component {
   constructor(props) {
     super(props)
@@ -46,8 +45,7 @@ class App extends Component {
       <div className="App">
       <nav>
 <Navbar brand='FindYourHealth' left>
-  <NavItem onClick={() => console.log('test click')}> About </NavItem>
-  <NavItem onClick={() => console.log('test click')}><Input label="First Name" validate defaultValue='search' /></NavItem>
+  <NavItem onClick={() => console.log('test click')}><Input validate defaultValue='search' /></NavItem>
 </Navbar>
 </nav>
         <body>

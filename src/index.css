@@ -1,8 +1,5 @@
 body {
-  display: flex;
-  flex-direction:row;
-  flex-wrap: wrap;
-  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .card {
@@ -20,22 +17,47 @@ H5.card-title {
 
 /* navbar */
 nav .nav-wrapper {
-  height: 1px;
   background-color: black;
   height: 10vh;
   padding: 10px;
 }
 
 nav ul li {
-  margin: 2px 0px 0px 20px;
   color: white;
 }
 
 
+/* search */
+#searchBox {
+width: 13vw;
+margin:0;
+font-size: 2vh;
+}
+
+#submitBth {
+height:7vh;
+width: 6vw;
+text-align: center;
+background-color: transparent;
+font-size: 2vh;
+}
 /* Responsive Moby */
 @media only screen and (max-width: 600px) {
   .card {
       width: 40vw;
       height: 60vh;
   }
+  #searchBox {
+    width: 13vw;
+    margin:0;
+    font-size: 2vh;
+    }
+    
+    #submitBth {
+    height:7vh;
+    width: 10vw;
+    text-align: center;
+    background-color: transparent;
+    font-size: 1vh;
+    }
 }

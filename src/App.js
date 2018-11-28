@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card,CardTitle,CardText,Input,Button, Form} from 'reactstrap';
+import { Card,CardTitle,Button, Row, Col } from 'reactstrap';
  import { NavItem, Navbar,Modal } from 'react-materialize'
 class App extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class App extends Component {
     .then((res) => {
       return res.json()
     } ).then(data => {
-      // filter processing
+      
     })
     .then
 
@@ -66,14 +66,18 @@ class App extends Component {
       <nav>
 <Navbar brand='FindYourHealth' left>
   <NavItem onClick={() => this.handleReload}>
-  <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.value} onChange={this.handleChange} defaultValue='Search'/>
-        <input type="submit" value="Submit" />
-    </form>
+  <Row form onSubmit={this.handleSubmit}>
+  <Col md={6}>
+  <input type="text" value={this.state.value} onChange={this.handleChange} defaultValue='Search' id='searchBox'/>
+  </Col>
+  <Col md={6}>
+  <input type="submit" value="Submit" id='submitBth'/>
+  </Col>
+    </Row>
   </NavItem>
 </Navbar>
 </nav>
-        <body>
+        <div className="App">
           {
             this.state.data ?
             this.state.data.map((item) =>
@@ -94,7 +98,7 @@ class App extends Component {
           :
           <li>wait..... data is fetching</li>
           }
-        </body>
+        </div>
         <footer>
 
         </footer>

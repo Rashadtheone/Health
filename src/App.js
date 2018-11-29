@@ -55,7 +55,7 @@ class App extends Component {
   
 
   render() {
-    let btn_class = this.state.previous ? 'whiteBtn' : 'grayBtn'
+    let btn_class = this.state.previous ? 'grayBtn' : 'whiteBtn'
     return (
 <div className="App">
     <nav>
@@ -71,17 +71,17 @@ class App extends Component {
       </Navbar>
     </nav>
   <div className="App-main">
+{/* conditional */}
     {
       this.state.data ?
-      this.state.data.map((item) =>
-        <Card body>
+      this.state.data.map((item, index) =>
+        <Card key={index} body>
           <CardTitle>{item.title}</CardTitle>
             <Modal
                 header={item.title}
                 fixedFooter
-                onClick={this.togglePast}
                 trigger=
-                {<Button className={btn_class} >More Info</Button>}>
+                {<Button className={btn_class} onClick={() => this.togglePast} >More Info</Button>}>
                   <h1>Description</h1>
                     <p>{item.bite}</p>
                       <a href={"https://www.healthcare.gov/"+ item.url}>{item.title}</a>

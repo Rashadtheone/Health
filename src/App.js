@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Card,CardTitle,Button, Row, Col } from 'reactstrap';
+import { Card,CardTitle,Button, } from 'reactstrap';
  import { NavItem, Navbar,Modal } from 'react-materialize'
 class App extends Component {
   constructor(props) {
@@ -9,7 +9,6 @@ class App extends Component {
     this.state = {
       data:null,
       value: 'Search',
-      filter: [],
       modal: false
     }
     this.getData()
@@ -36,23 +35,13 @@ class App extends Component {
     });
   }
 
-  handleChange (event) {
-    this.setState( {value: event.target.value})
-    event.preventDefault();
+  handleChange(event) {
+    this.setState({value: event.target.value});
   }
-  handleSubmit(event){
-    event.preventDefault()
-    console.log(this.state.value)
-    let postFilter = this.state.value
-    console.log('postfilter' + postFilter)
-    let data = fetch(' https://www.healthcare.gov/api/index.json' )
-    .then((res) => {
-      return res.json()
-    } ).then(data => {
-      
-    })
-    .then
 
+  handleSubmit(event) {
+    console.log('A search was submitted' + this.state.value);
+    event.preventDefault();
   }
 
 
@@ -65,16 +54,16 @@ class App extends Component {
       <div className="App">
       <nav>
 <Navbar brand='FindYourHealth' left>
+<form onSubmit={this.handleSubmit}>
   <NavItem onClick={() => this.handleReload}>
-  <Row form onSubmit={this.handleSubmit}>
-  <Col md={6}>
-  <input type="text" value={this.state.value} onChange={this.handleChange} defaultValue='Search' id='searchBox'/>
-  </Col>
-  <Col md={6}>
-  <input type="submit" value="Submit" id='submitBth'/>
-  </Col>
-    </Row>
-  </NavItem>
+          
+          <input id='searchBox'value={this.state.value} onChange={this.handleChange} />
+          </NavItem>
+    <NavItem>
+        <input id='submitBth' type="submit" value="Submit" />
+        </NavItem>
+      </form>
+  
 </Navbar>
 </nav>
         <div className="App">

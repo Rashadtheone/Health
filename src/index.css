@@ -5,10 +5,10 @@ body {
 .card {
   display:flex; 
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   font-size: 2vh;
-  width: 20vw;
-  height: 30vh;
+  width: 22vw;
+  height: 35vh;
   margin: 10px;
 }
 H5.card-title {
@@ -36,13 +36,13 @@ font-size: 2vh;
 
 #submitBth {
 height:7vh;
-width: 6vw;
+width: 7vw;
 text-align: center;
 background-color: transparent;
 font-size: 2vh;
 }
 /* Responsive Moby */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
   .card {
       width: 40vw;
       height: 60vh;
@@ -55,7 +55,7 @@ font-size: 2vh;
     
     #submitBth {
     height:7vh;
-    width: 10vw;
+    width: 15vw;
     text-align: center;
     background-color: transparent;
     font-size: 1vh;

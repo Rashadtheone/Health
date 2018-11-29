@@ -1,6 +1,29 @@
+
+/* main app */
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.App-main {
+  margin-top: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 90vh;
+  overflow:scroll;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
+
+/* card  */
 
 .card {
   display:flex; 
@@ -13,6 +36,16 @@ body {
 }
 H5.card-title {
   font-size: 1vh;
+}
+
+.whiteBtn {
+  background-color: white;
+  color: black;
+
+}
+.grayBtn {
+  background-color: gray;
+  color: white;
 }
 
 /* navbar */

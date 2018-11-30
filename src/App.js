@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { Card,CardTitle,Button, } from 'reactstrap';
  import { NavItem, Navbar,Modal } from 'react-materialize'
 class App extends Component {
@@ -39,6 +38,7 @@ class App extends Component {
   togglePast() {
   console.log("toggle past")
   this.setState({previous: !this.state.previous})
+  // Change color of card after it's been chosen.
   }
 
   handleChange(event) {
@@ -48,10 +48,8 @@ class App extends Component {
   handleSubmit(event) {
     console.log('A search was submitted' + this.state.value)
     event.preventDefault()
+    // handle search with fetch and promise statements.
   }
-
-
-
   
 
   render() {
@@ -71,7 +69,7 @@ class App extends Component {
       </Navbar>
     </nav>
   <div className="App-main">
-{/* conditional */}
+{/* conditional  statement to make search results appear*/}
     {
       this.state.data ?
       this.state.data.map((item, index) =>
@@ -80,8 +78,9 @@ class App extends Component {
             <Modal
                 header={item.title}
                 fixedFooter
+                
                 trigger=
-                {<Button className={btn_class} onClick={() => this.togglePast} >More Info</Button>}>
+                {<Button className={btn_class}  onClick={() => this.togglePast}>More Info</Button>}>
                   <h1>Description</h1>
                     <p>{item.bite}</p>
                       <a href={"https://www.healthcare.gov/"+ item.url}>{item.title}</a>
